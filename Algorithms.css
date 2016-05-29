@@ -1,0 +1,81 @@
+/* Algorithms.css */
+
+/* Tag Selectors */
+body {
+    font: 92%/1.5 Verdana, Arial, sans-serif;
+    color: #C00; /* Deeper Red */
+    margin: 0 auto;
+    padding: 0;
+    background: #000; /* Black */
+    border: 3px solid #900; /* Rust */
+}
+
+header {
+    font: bold 1.7em Calisto, Georgia, serif;
+    color: #F00; /* Red */
+    text-align: center;
+    text-shadow: #900 5px 2px 2px; /* Rust */
+    display: block;
+}
+
+h2{
+    font-size: 1.3em;
+    text-shadow: #900 1px 2px 1px; /* Rust */
+}
+
+main {
+    width: 1100px;
+    margin: 0 auto;
+    background: #000; /* Black */
+    border: 7px solid #C00; /* Deeper Red */
+    box-shadow: -3px -3px 10px #900, 3px 3px 10px #900; /* Rust */
+    border-radius: 12px;
+    display: block;
+    position: relative;
+}
+
+input, textArea {
+    font-size: 92%;
+    color: #600; /*Deeper Rust */
+    padding: 5px;
+    background: #FFF;
+    border: 2px solid #300; /* Very Dark Brown */
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #600, 1px 1px 3px #900 inset; /* Deeper Rust and Rust */
+    outline: none;
+}
+
+textArea {
+    background: #FFF; /* White */
+}
+
+/* ID  Selectors */
+
+/* Class Selectors */
+/* Styling for div container for each algorithm section. */
+.AlgorithmSection {
+    width: 1000px;
+    margin: 20px 85px 20px 15px;
+    padding: 10px 30px 30px 30px;
+    color: #000; /* Black */
+    font-weight: bold;
+    background: #ff4500; /* Red-Orange */
+    border: 5px solid #C00; /* Deeper Red */
+    box-shadow: -3px -3px 10px #900; /*Rust */
+    border-radius: 12px;
+    position: relative;
+    display: block;
+}
+
+/* Styling for Go button in each algorithm section. */
+.Go {
+    font-size: 1.2em;
+    color: #300; /* Very Dark Brown */
+    font-weight: bold;
+    text-shadow: #900 2px 1px 1px; /* Rust */
+    background-color: #F00; /* Red */
+    border: 2px solid #600; /* Deeper Rust */.
+    box-shadow: 0 0 3px #C00, 0 0 10px 0 #C00 inset; /* Deeper Red */
+    border-radius: 8px;
+    outline: none;
+}

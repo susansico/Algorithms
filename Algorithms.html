@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link href="Algorithms.css" rel="stylesheet">
+	<script src="BigInteger/BigInteger.js"></script>
+	<script src="Algorithms.js"></script>
+	<script src="Palindromes.js"></script>
+	<script src="QuickSort.js"></script>
+	<script src="Anagrams.js"></script>
+	<script src="Factorial.js"></script>
+	<script src="FibonacciNumbers.js"></script>
+	<script src="InsertionSort.js"></script>
+	<script src="MissingNumbers.js"></script>
+	<script src="Median.js"></script>
+	<script src="DecimalToReverseDecimal.js"></script>
+	<script src="DecimalToReverseBinaryBitwise.js"></script>
+	<script src="HexadecimalToDecimal.js"></script>
+	<script src="DecimalToHexadecimal.js"></script>
+	<script src="Prime.js"></script>
+	<title>Algorithms</title>
+</head>
+
+<!-- This web page was written to test algorithms that include Anagrams, Decimal to Hexadecimal, Decimal to Reversed Binary Bitwise, Decimal to Reverse Decimal, Factorial, Fibonacci Numbers, Hexadecimal to Decimal, Insertion Sort, Median, Missing Numbers, Palindromes, Prime, and QuickSort. Text fields in form were used for getting input for each algorithm and also for displaying results of algorithm.  All result fields are disabled except for Factorial and Fibonacci Numbers which allow user to click in result field in order to go to end and beginning of field using arrow, home, and end keys.  This is because Factorial and Fibonacci results can be big numbers.  To display big number results in decimal, a big integer library was used. -->
+<body>
+
+	<header role="banner"><h1>Algorithms</h1></header>
+
+	<main>
+
+		<form name="InterviewAlgorithmsForm" action="/" method="post" enctype="multipart/form-data">
+
+			<!-- Anagram -->
+			<div class="AlgorithmSection">
+
+				<h2>Anagram</h2>
+
+				<label for="AnagramOriginalWord">An Anagram is a word, phrase, or name formed by rearranging the letters of another word/phrase/name, e.g. cinema formed from iceman.  Please enter a word/phrase/name&#58;</label>
+				<input type="text" name="AnagramOriginalWord" id="AnagramOriginalWord" size="30" maxlength="30"><br><br>
+				<label for="AnagramTestWord">Please enter rearranged letters of the first word/phrase/name to test if they are an Anagram of the first word/phrase/name&#58;</label>
+				<input type="text" name="AnagramTestWord" id="AnagramTestWord" size="30" maxlength="30">
+				<button class="Go" onclick="AnagramWord('AnagramOriginalWord', 'AnagramTestWord', 'AnagramWordResult');">Go
+				</button><br><br>
+
+				<label for="AnagramWordResult">Anagram Word Result&#58;</label><br>
+				<input type="text" name="AnagramWordResult" id="AnagramWordResult" size="30" maxlength="30" disabled oninput="return false;" onchange="return false;"><br><br>
+
+				<label for="AnagramLettersMatch">Please enter an even number of letters to find number of characters in first half of letters that need to be changed to make it an Anagram of second half of letters, e.g. xyyx is 0, no change&#58;</label>
+				<input type="text" name="AnagramLettersMatch" id="AnagramLettersMatch" size="30" maxlength="30">
+				<button class="Go" onclick="AnagramLetters('AnagramLettersMatch', 'AnagramLettersResult');">Go</button><br><br>
+
+				<label for="AnagramLettersResult">Anagram Letters Result&#58;</label><br>
+				<input type="text" name="AnagramLettersResult" id="AnagramLettersResult" size="30" maxlength="30" disabled oninput="return false;" onchange="return false;">
+
+			</div>
+
+			<!-- Decimal to Binary Reversed Bitwise -->
+			<div class="AlgorithmSection">
+
+				<h2>Decimal to Binary Reversed Bitwise</h2>
+
+				<label for="DecimalNumberBitwise">Please enter a Decimal number to reverse in Binary&#58;</label>
+				<input type="text" name="DecimalNumberBitwise" id="DecimalNumberBitwise" size="100" maxlength="100">
+				<button class="Go" onclick="DecimalToReverseBinaryBitwise('DecimalNumberBitwise', 'ReversedBinaryResults');">Go
+				</button><br><br>
+
+				<label for="ReversedBinaryResults">Binary Number Reversed Results&#58;</label><br>
+				<textarea name="ReversedBinaryResults" id="ReversedBinaryResults" cols="40" rows="20" disabled oninput="return false;" onchange="return false;"></textarea>
+
+			</div>
+
+			<!-- Decimal to Hexadecimal -->
+			<div class="AlgorithmSection">
+
+				<h2>Decimal to Hexadecimal</h2>
+
+				<label for="DecimalNumberHex">Please enter a Decimal number to convert to a Hexadecimal number&#58;</label>
+				<input type="text" name="DecimalNumberHex" id="DecimalNumberHex" size="30" max="30">
+				<button class="Go" onclick="DecimalToHexadecimal('DecimalNumberHex', 'HexadecimalResult');">Go
+				</button><br><br>
+
+				<label for="HexadecimalResult">Decimal Result&#58;</label>
+				<input type="text" name="HexadecimalResult" id="HexadecimalResult" size="30" maxLength="30" disabled oninput="return false;" onchange="return false;">
+
+			</div>
+
+			<!-- Decimal To Reverse Decimal -->
+			<div class="AlgorithmSection">
+
+				<h2>Decimal To Reverse Decimal</h2>
+
+				<label for="DecimalNumber">Please enter a Decimal number to reverse&#58;</label>
+				<input type="text" name="DecimalNumber" id="DecimalNumber" size="30" maxlength="30">
+				<button class="Go" onclick="DecimalToReverseDecimal('DecimalNumber', 'ReverseNumberResults');">Go
+				</button><br><br>
+
+				<label for="ReverseNumberResults">Reverse Number Results&#58;</label><br>
+				<input type="text" name="ReverseNumberResults" id="ReverseNumberResults" size="30" maxlength="30" disabled oninput="return false;" onchange="return false;">
+
+			</div>
+
+			<!-- Factorial -->
+			<div class="AlgorithmSection">
+
+				<h2>Factorial</h2>
+
+				<label for="FactorializeNumber">The Factorial of a non-negative number is the product of all the positive integers less than or equal to the number, e.g. 5 Factorial is 1*2*3*4*5. Please enter a number between 1 and 100 for a Factorial result&#58;</label>
+				<input type="text" name="FactorializeNumber" id="FactorializeNumber" size="6" maxlength="6">
+				<button class="Go" onclick="Factorial('FactorializeNumber', 'FactorialResult');">Go</button><br><br>
+
+				<label for="FactorialResult">Factorial Result&#58;</label>
+				<input type="text" name="FactorialResult" id="FactorialResult" size="100" maxlength="100" oninput="return false;" onchange="return false;">
+
+			</div>
+
+			<!-- Fibonacci Numbers -->
+			<div class = "AlgorithmSection">
+
+				<h2>Fibonacci Numbers</h2>
+
+				<label for="FibonacciSequenceNumber">A Fibonacci number sequence starts with 0, 1, with each additional number being the addition of the 2 numbers before it.  Please enter the number of Fibonacci numbers to be calculated with the constraint 0 < number <=100&#58;</label>
+				<input type="text" name="FibonacciSequenceNumber" id="FibonacciSequenceNumber" size="6" maxlength="6">
+				<button class="Go" onclick="FibonacciNumbers('FibonacciSequenceNumber', 'FibonacciResult');">Go</button><br><br>
+
+				<label for="FibonacciResult">Fibonacci Result&#58;</label>
+				<input type="text" name="FibonacciResult" id="FibonacciResult" size="100" maxlength="100" oninput="return false;" onchange="return false;"><br><br>
+
+				<label for="FibonacciIntegerString">This modified Fibonacci sequence starts with the first two numbers being 0 <= number <= 2 and each additional number being the addition of the two previous numbers with the second number being squared.  Please enter three space separated numbers, the first two numbers in the sequence and a third number that is the total number of terms in the sequence with the constraint 3 <= total terms <= 20, e.g. 0, 2, 10:</label>
+				<input type="text" name="FibonacciIntegerString" id="FibonacciIntegerString" size="6" maxlength="6">
+				<button class="Go" onclick="FibonacciModified('FibonacciIntegerString', 'FibonacciModifiedResult');">Go</button><br><br>
+
+				<label for="FibonacciModifiedResult">Fibonacci Modified Result&#58;</label>
+				<input type="text" name="FibonacciModifiedResult" id="FibonacciModifiedResult" size="100" maxlength="100" oninput="return false;" onchange="return false;">
+
+			</div>
+
+			<!-- Hexadecimal to Decimal -->
+			<div class="AlgorithmSection">
+
+				<h2>Hexadecimal to Decimal</h2>
+
+				<label for="HexadecimalNumber">Please enter a Hexadecimal number to convert to a Decimal number&#58;</label>
+				<input type="text" name="HexadecimalNumber" id="HexadecimalNumber" size="30" max="30">
+				<button class="Go" onclick="HexadecimalToDecimal('HexadecimalNumber', 'DecimalResult');">Go</button><br><br>
+
+				<label for="DecimalResult">Decimal Result&#58;</label>
+				<input type="text" name="DecimalResult" id="DecimalResult" size="30" maxLength="30" disabled oninput="return false;" onchange="return false;">
+
+			</div>
+
+			<!-- Insertion Sort -->
+			<div class="AlgorithmSection">
+
+				<h2>Insertion Sort</h2>
+
+				<label for="InsertionSortIntegerSequence">Please enter a sorted sequence of space separated numbers with the last number being the number to insert into the sequence, e.g. 2 4 6 8 3 5&#58;</label>
+				<input type="text" name="InsertionSortIntegerSequence" id="InsertionSortIntegerSequence" size="30" maxlength="30">
+				<button class="Go" onclick = "InsertionSort('InsertionSortIntegerSequence', 'InsertionSortResults');">Go</button><br><br>
+
+				<label for="InsertionSortResults">Insertion Sort Results&#58;</label><br>
+				<textarea name="InsertionSortResults" id="InsertionSortResults" cols="25" rows="10" disabled oninput="return false;" onchange="return false;"></textarea>
+
+			</div>
+
+			<!-- Median -->
+			<div class="AlgorithmSection">
+
+				<h2>Median</h2>
+
+				<label for="MedianSequence">The Median is the middle value in a sequence of numbers in numerical order. Please enter a sequence of space separated numbers to find the Median value&#58;</label>
+				<input type="text" name="MedianSequence" id="MedianSequence" size="100" maxlength="100">
+				<button class="Go" onclick="Median('MedianSequence', 'MedianResults');">Go</button><br><br>
+
+				<label for="MedianResults">Median Results&#58;</label><br>
+				<textarea name="MedianResults" id="MedianResults" cols="25" rows="10" disabled oninput="return false;" onchange="return false;"></textarea>
+
+			</div>
+
+			<!-- Missing Numbers -->
+			<div class="AlgorithmSection">
+
+				<h2>Missing Numbers</h2>
+
+				<label for="SubsetNumbersSet">Please enter two space separated sets of numbers, the first being a subset of the second, to find the Missing Numbers in the first set&#58;</label><br><br>
+				<input type="text" name="SubsetNumbersSet" id="SubsetNumbersSet" size="100" maxlength="100"><br><br>
+				<input type="text" name="NumbersSet" id="NumbersSet" size="100" maxlength="100">
+				<button class="Go" onClick="MissingNumbers('SubsetNumbersSet', 'NumbersSet', 'MissingNumbersResults');">Go</button><br><br>
+
+				<label for="MissingNumbersResults">Missing Numbers Results&#58;</label><br>
+				<input type="text" name="MissingNumbersResults" id="MissingNumbersResults" size="50" maxlength="50" disabled oninput="return false;" onchange="return false;">
+
+			</div>
+
+			<!-- Palindromes -->
+			<div class="AlgorithmSection">
+
+				<h2>Palindrome</h2>
+
+				<label for="PalindromeTestWord">A Palindrome is a word, phrase, or sequence that reads the same backwards as forwards, e.g. racecar, madam.  Please enter a word or phrase to determine if it is a Palindrome&#58;</label>
+				<input type="text" name="PalindromeTestWord" id="PalindromeTestWord" size="30" maxlength="30">
+				<button class="Go" onclick="PalindromeWord('PalindromeTestWord', 'PalindromeResult');">Go</button><br><br>
+
+				<label for="PalindromeResult">Palindrome Word Result&#58;</label><br>
+				<input type="text" name="PalindromeResult" id="PalindromeResult" size="30" maxlength="30" disabled onchange="return false;" oninput="return false;"><br><br>
+
+				<label for="PalindromeTestLetters">Please enter lowercase letters to find the letter index to omit for a Palindrome, e.g for aab, b at index 2 would be omitted&#58;</label>
+				<input type="text" name="PalindromeTestLetters" id="PalindromeTestLetters" size="56" maxlength="56">
+				<button class="Go" onclick="PalindromeLetters('PalindromeTestLetters', 'PalindromeLetterResult');">Go</button><br><br>
+
+				<label for="PalindromeLetterResult">Palindrome Letter Result&#58;</label><br>
+				<input type="text" name="PalindromeLetterResult" id="PalindromeLetterResult" size="30" maxlength="30" disabled oninput="return false;" onchange="return false;">
+
+			</div>
+
+			<!-- Prime -->
+			<div class="AlgorithmSection">
+
+				<h2>Prime</h2>
+
+				<label for="PrimeTestNumber">A Prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself, e.g. 2, 3 with number 1 not being a Prime.  Please enter a number to test as a Prime number&#58;</label>
+				<input type="text" name="PrimeTestNumber" id="PrimeTestNumber" size="30" maxlength="30">
+				<button class="Go" onclick="Prime('PrimeTestNumber', 'PrimeNumberResult');">Go</button><br><br>
+
+				<label for="PrimeNumberResult">Prime Result</label>
+				<input type="text" name="PrimeNumberResult" id="PrimeNumberResult" size="30" maxlength="30" disabled oninput="return false;" onchange="return false;">
+
+			</div>
+
+			<!-- QuickSort -->
+			<div class="AlgorithmSection">
+
+				<h2>QuickSort</h2>
+
+				<label for="QuickSortNumberSequence">Please enter a space separated sequence of numbers to sort in ascending order, e.g. 9 4 6 3 8 1&#58;</label>
+				<input type="text" name="QuickSortNumberSequence" id="QuickSortNumberSequence" size="30" maxlength="30">
+				<button class="Go" onclick="QuickSortInitialize('QuickSortNumberSequence', 'QuickSortResults');">Go</button><br><br>
+
+				<label for="QuickSortResults">QuickSort Results&#58;</label><br>
+				<textarea name="QuickSortResults" id="QuickSortResults" cols="25" rows="10" disabled oninput="return false;" onchange="return false;"></textarea>
+
+			</div>
+
+		</form>
+
+	</main>
+
+</body>
+</html>
